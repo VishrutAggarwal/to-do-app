@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+/* VARIABLES AND INITIALS */
+
+:root {
+    /* COLORS */
+
+    /* Background Colors */
+
+    --bg-color-primary: #4D4D4D;
+
+    /* TYPOGRAPHY */
+
+    /* Font Family */
+
+    --ff--josefin-sans: "Josefin Sans";
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* APP */
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--ff--josefin-sans);
+}
+
+/* HEADER */
+
+#header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: "heading theme";
+    height: 7vh;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    grid-area: heading;
+    border: 1px solid black;
+}
+
+#theme-changer {
+    grid-area: theme;
+}
+
+/* TODOLIST */
+
+#input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30vh;
+    border: 1px solid black;
+    gap: 30px;
+}
+
+input {
+    width: 1000px;
+    height: 50px;
+}
+
+#input-button {
+    
+}
+
+#task-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+    min-height: 60vh;
+    border: 1px solid black;
+}
+
+#todo-component {
+    display: grid;
+    grid-template-columns: 7fr 2fr 2fr 2fr;
+    width: 80%;
+}
+
+/* FOOTER */
+
+#footer {
+    width: 100%;
+    height: 3vh;
+    border: 1px solid black;
+}
+
+/* FOMRATS */
+
+.strikethrough {
+    text-decoration: line-through;
+}

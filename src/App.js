@@ -1,11 +1,15 @@
 import React from 'react'
+import Header from './Header';
 import ToDoList from './ToDoList'
+import Footer from './Footer';
 
 function App() {
   return (
-      <div>
+      <main id = "container">
+          <Header />
           <ToDoList />
-      </div>
+          <Footer />
+      </main>
   )
 }
 
