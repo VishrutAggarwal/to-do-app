@@ -10,7 +10,6 @@ function ToDoList() {
 
     function createTodo(event) {
         event.preventDefault()
-        globalID++
         setTodos(oldTodos => {
             setTask('')
             return [...oldTodos, {todo: task, id: globalID++, isComplete: false}]
@@ -21,24 +20,18 @@ function ToDoList() {
         setTodos(oldTodos => oldTodos.filter(item => item.id !== ItemID))
     }
 
-    function taskCompleted(ItemID) {
+    function taskClicked(ItemID) {
         setTodos(oldTodos => oldTodos.map(item =>
             {
                 if(item.id === ItemID) {
-                    item.isComplete = true
+                    item.isComplete = !item.isComplete
                 }
                 return item
             }))
     }
 
-    function taskUnCompleted(ItemID) {
-        setTodos(oldTodos => oldTodos.map(item =>
-            {
-                if(item.id === ItemID) {
-                    item.isComplete = false
-                }
-                return item
-            }))
+    function clearCompleted() {
+        setTodos(oldTodos => oldTodos.filter(item => item.isComplete !== true))
     }
 
   return (
@@ -46,19 +39,19 @@ function ToDoList() {
         <form onSubmit = {createTodo} id = "input-area">
             <input type = "text" value = {task} onChange = {event => setTask(event.target.value)}>
             </input>
-            <button type = "submit" id = "input-submit">
-                Add Task
-            </button>
+            <button type = "submit" id = "input-button">Add Task</button>
         </form>
         <ul id = "task-area">
             {todos.map(item =>
                 <div key = {item.id} id = "todo-component">
-                    <li className = {item.isComplete ? "strikethrough" : ""}>{item.todo}</li>
-                    <button onClick = {() => taskCompleted(item.id)}>Check Task</button>
-                    <button onClick = {() => taskUnCompleted(item.id)}>Uncheck Task</button>
-                    <button onClick = {() => deleteItem(item.id)}>Delete Task</button>
+                    <button onClick = {() => taskClicked(item.id)} className = "checkbox">&#x2610;</button>
+                    <li className = {item.isComplete ? "todo strikethrough" : "todo"}>{item.todo}{item.id}</li>
+                    <button onClick = {() => deleteItem(item.id)} className = "delete-button">Delete Task</button>
                 </div>)}
         </ul>
+        <div id = "functions">
+            <button onClick = {() => clearCompleted()}>Clear Completed</button>
+        </div>
       </>
   )
 }

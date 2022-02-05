@@ -9,6 +9,12 @@
 
     --bg-color-primary: #4D4D4D;
 
+    /* Light Theme */
+    --very-light-blue: #F9F2FB;
+    --desaturated-light-blue: #C1CADE;
+    --desaturated-blue: #89A2C0;
+    --desaturated-dark-blue: #394E6A;
+
     /* TYPOGRAPHY */
 
     /* Font Family */
@@ -22,6 +28,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--ff--josefin-sans);
 }
 
 /* APP */
@@ -31,7 +38,6 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    font-family: var(--ff--josefin-sans);
 }
 
 /* HEADER */
@@ -42,7 +48,8 @@
     grid-template-areas: "heading theme";
     height: 7vh;
     width: 100%;
-    border: 1px solid black;
+    background-color: var(--desaturated-dark-blue);
+    color: var(--desaturated-light-blue);
 }
 
 #heading {
@@ -51,7 +58,6 @@
     justify-content: center;
     align-items: center;
     grid-area: heading;
-    border: 1px solid black;
 }
 
 #theme-changer {
@@ -67,17 +73,20 @@
     justify-content: center;
     width: 100%;
     height: 30vh;
-    border: 1px solid black;
     gap: 30px;
+    background-color: var(--desaturated-dark-blue);
 }
 
 input {
     width: 1000px;
     height: 50px;
+    background-color: var(--desaturated-light-blue);
+    color: var(--bg-color-primary);
+    padding: 1rem;
 }
 
 #input-button {
-    
+    padding: 1rem;
 }
 
 #task-area {
@@ -86,14 +95,35 @@ input {
     align-items: center;
     padding: 1rem 0;
     width: 100%;
-    min-height: 60vh;
-    border: 1px solid black;
+    min-height: 55vh;
+    background-color: var(--desaturated-blue);
 }
 
 #todo-component {
     display: grid;
-    grid-template-columns: 7fr 2fr 2fr 2fr;
+    grid-template-columns: 0.25fr 1fr 7fr 5fr 3fr;
     width: 80%;
+    grid-template-areas: "checkbox . todo . delete";
+    padding: 3px;
+    background-color: var(--desaturated-light-blue);
+}
+
+.checkbox {
+    grid-area: checkbox;
+}
+
+.todo {
+    list-style: none;
+    grid-area: todo;
+}
+
+.delete-button {
+    grid-area: delete;
+}
+
+#functions {
+    width: 80%;
+    height: 5vh;
 }
 
 /* FOOTER */
